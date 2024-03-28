@@ -18,4 +18,6 @@ This playbook provides a collection of scripts and configuration files for netwo
 
 Ensure you have Python 3, Ansible, and Netmiko installed on your system. You can install Netmiko using pip:
 
-
+```
+$ pip install netmiko
+```
