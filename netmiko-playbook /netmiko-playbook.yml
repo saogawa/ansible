@@ -1,0 +1,19 @@
+- name: Execute Netmiko Script on Nokia SR Linux Devices
+  hosts: nokia_srlinux
+  gather_facts: no
+
+  tasks:
+    - name: Run netmiko-srl.py script
+      ansible.builtin.command:
+        # Use shell style syntax to pass arguments directly
+        # Assumes netmiko-srl.py is present in the same directory on the remote host
+        cmd: >-
+          python3 ./netmiko-srl.py {{ ansible_host }} {{ ansible_user }} '{{ ansible_password }}'
+
+          "info from state /platform chassis"
+
+      register: script_output
+
+    - name: Show script output
+      ansible.builtin.debug:
+        msg: "{{ script_output.stdout }}"
